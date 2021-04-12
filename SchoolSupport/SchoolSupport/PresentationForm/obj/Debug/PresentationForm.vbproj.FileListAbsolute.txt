@@ -1,0 +1,3 @@
+C:\Users\Menua\Desktop\SchoolSupport\SchoolSupport\SchoolSupport\PresentationForm\obj\Debug\PresentationForm.vbprojAssemblyReference.cache
+C:\Users\Menua\Desktop\SchoolSupport\SchoolSupport\SchoolSupport\PresentationForm\obj\Debug\PresentationForm.Resources.resources
+C:\Users\Menua\Desktop\SchoolSupport\SchoolSupport\SchoolSupport\PresentationForm\obj\Debug\PresentationForm.vbproj.GenerateResource.cache

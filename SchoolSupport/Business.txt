@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain
+{
+    public class Business
+    {
+        private Persistence _persistence = new Persistence();
+
+        public int Login(string puser_email, string puser_password)
+        {
+            return _persistence.Login(puser_email, puser_password);
+        }
+
+        public List<Question> readTable_question()
+        {
+            return _persistence.readTable_question();
+        }
+
+        public List<Answer> readTable_answer()
+        {
+            return _persistence.readTable_answer();
+        }
+
+        public List<Role> readTable_role()
+        {
+            return _persistence.readTable_role();
+        }
+
+        public List<Status> readTable_status()
+        {
+            return _persistence.readTable_status();
+        }
+
+        public List<Ticket> readTable_ticket()
+        {
+            return _persistence.readTable_ticket();
+        }
+
+        public List<User> readTable_user(string puser_email, string puser_password)
+        {
+            return _persistence.readTable_user(puser_email, puser_password);
+        }
+    }
+}

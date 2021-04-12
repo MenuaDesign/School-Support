@@ -1,0 +1,161 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using MySql.Data;
+
+namespace Domain
+{
+	class Persistence
+	{
+		private string _connString;
+		private MySqlConnection _conn;
+		private MySqlCommand _cmd;
+		public void ConnectieMaken(string psql)
+		{
+			_connString = "server = localhost; user id = root; Password = Test123); database=schoolsupport;";
+			_conn = new MySqlConnection(_connString);
+			_cmd = new MySqlCommand(psql, _conn);
+
+		}
+
+		public int Login(string puser_email, string puser_password)
+		{
+
+			string mysql = "SELECT* FROM schoolsupport.user where user_email = @username and user_password = @password where (user_id=@user_id) ";
+			MySqlCommand _cmd = new MySqlCommand(mysql, _conn);
+			_cmd.Parameters.AddWithValue("@user_email", puser_email);
+			_cmd.Parameters.AddWithValue("@user_password", puser_password);
+
+			_conn.Open();
+			MySqlDataReader dr = _cmd.ExecuteReader();
+			if (dr.Read())
+			{
+				return Convert.ToInt32(dr["user_id"]);
+			}
+			else
+			{
+				return 0;
+			}
+
+		}
+
+		public List<Question> readTable_question()
+		{
+			List<Question> qslijst = new List<Question>();
+			string sql = "SELECT * FROM schoolsupport.question order by question_id;";
+			MySqlCommand comm = new MySqlCommand(sql, _conn);
+
+			_conn.Open();
+			MySqlDataReader mySqlDataReader = comm.ExecuteReader();
+			while (mySqlDataReader.Read())
+			{
+				Question qs = new Question((int)mySqlDataReader["question_id"], mySqlDataReader["question_discription"].ToString());
+				qslijst.Add(qs);
+
+			}
+			mySqlDataReader.Close();
+			_conn.Close();
+			return qslijst;
+		}
+
+		
+
+		public List<Answer> readTable_answer()
+		{
+			List<Answer> arlijst = new List<Answer>();
+			string sql = "SELECT * FROM schoolsupport.answer order by answer_id;";
+			MySqlCommand comm = new MySqlCommand(sql, _conn);
+
+			_conn.Open();
+			MySqlDataReader mySqlDataReader = comm.ExecuteReader();
+			while (mySqlDataReader.Read())
+			{
+				Answer ar = new Answer((int)mySqlDataReader["answer_id"], mySqlDataReader["answer_discription"].ToString(), (int)mySqlDataReader["answer_user_id"]);
+				arlijst.Add(ar);
+
+			}
+			_conn.Close();
+			return arlijst;
+		}
+
+		public List<Role> readTable_role()
+		{
+			List<Role> rllijst = new List<Role>();
+			string sql = "SELECT * FROM schoolsupport.role order by role_name;";
+			MySqlCommand comm = new MySqlCommand(sql, _conn);
+
+			_conn.Open();
+			MySqlDataReader mySqlDataReader = comm.ExecuteReader();
+			while (mySqlDataReader.Read())
+			{
+				Role rl = new Role((int)mySqlDataReader["role_id"], mySqlDataReader["role_name"].ToString(), mySqlDataReader["role_discription"].ToString());
+				rllijst.Add(rl);
+
+			}
+			mySqlDataReader.Close();
+			_conn.Close();
+			return rllijst;
+		}
+
+		public List<Status> readTable_status()
+		{
+			List<Status> stlijst = new List<Status>();
+			string sql = "SELECT * FROM schoolsupport.status order by status_discription;";
+			MySqlCommand comm = new MySqlCommand(sql, _conn);
+
+			_conn.Open();
+			MySqlDataReader mySqlDataReader = comm.ExecuteReader();
+			while (mySqlDataReader.Read())
+			{
+				Status st = new Status((int)mySqlDataReader["status_id"], mySqlDataReader["status_discription"].ToString());
+				stlijst.Add(st);
+
+			}
+			mySqlDataReader.Close();
+			_conn.Close();
+			return stlijst;
+		}
+
+		public List<Ticket> readTable_ticket()
+		{
+			List<Ticket> tklijst = new List<Ticket>();
+			string sql = "SELECT * FROM schoolsupport.ticket order by ticket_date;";
+			MySqlCommand comm = new MySqlCommand(sql, _conn);
+
+			_conn.Open();
+			MySqlDataReader mySqlDataReader = comm.ExecuteReader();
+			while (mySqlDataReader.Read())
+			{
+				Ticket tk = new Ticket(mySqlDataReader["ticket_naam"].ToString(), mySqlDataReader["ticket_subject"].ToString(), (DateTime)mySqlDataReader["ticket_date"], (int)mySqlDataReader["ticket_user_id"], (DateTime)mySqlDataReader["ticket_date"]);
+				tklijst.Add(tk);
+
+			}
+			mySqlDataReader.Close();
+			_conn.Close();
+			return tklijst;
+		}
+
+		public List<User> readTable_user(string puser_email, string puser_password)
+		{
+			List<User> urlijst = new List<User>();
+			User ur;
+			string sql = "SELECT * FROM schoolsupport.user order by user_email;";
+			ConnectieMaken(sql);
+			_cmd.Parameters.AddWithValue("@user_email", puser_email);
+			_cmd.Parameters.AddWithValue("@user_password", puser_password);
+			_conn.Open();
+			MySqlDataReader mySqlDataReader = _cmd.ExecuteReader();
+			while (mySqlDataReader.Read())
+			{
+				ur = new User((int)mySqlDataReader["user_id"], mySqlDataReader["user_password"].ToString(), mySqlDataReader["user_email"].ToString(), (int)mySqlDataReader["user_role_id"]);
+				urlijst.Add(ur);
+
+			}
+			_conn.Close();
+			return urlijst;
+		}
+	}
+}

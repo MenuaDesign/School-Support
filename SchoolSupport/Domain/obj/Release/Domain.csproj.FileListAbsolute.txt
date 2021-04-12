@@ -1,0 +1,11 @@
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\bin\Release\Domain.dll
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\bin\Release\Domain.pdb
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\bin\Release\MySql.Data.dll
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\bin\Release\Google.Protobuf.dll
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\bin\Release\Renci.SshNet.dll
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\bin\Release\MySql.Data.xml
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\obj\Release\Domain.csprojAssemblyReference.cache
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\obj\Release\Domain.csproj.CopyComplete
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\obj\Release\Domain.dll
+C:\Users\Menua\Desktop\Corona-school\Schoolsupport\SchoolSupport\Domain\obj\Release\Domain.pdb

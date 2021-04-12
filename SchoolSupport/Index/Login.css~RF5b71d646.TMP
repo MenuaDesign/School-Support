@@ -1,0 +1,8 @@
+﻿body {
+    overflow-x: hidden;
+    font-family: 'ADAM.CG PRO' sans-serif;
+    color: #505962;
+}
+
+.form1{
+}

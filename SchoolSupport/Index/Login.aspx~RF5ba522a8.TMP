@@ -1,0 +1,40 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Index.Login" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="Login.css"/>
+    <link rel="stylesheet" type="text/css" href="css/Login.css"/>
+
+</head>
+<body>
+  <header class="v-header container">
+    <div class="fullscreen-video-wrap">
+      <video id="bgvid" autoplay loop muted>
+        <source src="Images/Background.mp4" type="video/mp4">
+      </video>
+    </div>
+      <div class="header-overlay"></div>
+  <div class="login">
+    <form class="form1" runat="server">
+        <div>
+            &nbsp;Email:<br />
+            <asp:TextBox ID="emailTextbox" runat="server" TextMode="Email"></asp:TextBox>
+            <br />
+            <br />
+            Password:<br />
+            <asp:TextBox ID="passwdTextbox" runat="server" TextMode="Password"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="loginButton" runat="server" OnClick="loginButton_Click" Text="Login" Width="194px" />
+            <br />
+        </div>
+        <asp:Label ID="lblerror" runat="server">incorrect email/password</asp:Label>
+        <br />
+        <br />
+        Don&#39;t have an account? <a href="Register.aspx">Register now.</a> </form>
+      </header>
+</body>
+</html>
